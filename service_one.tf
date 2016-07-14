@@ -5,7 +5,7 @@ variable "service_one_service_name" {
 }
 
 variable "service_one_query_criteria" {
-  default = "environment:prod,service_name:service_one"
+  default = "service_name:service_one"
 }
 
 module "service_one_ec2" {

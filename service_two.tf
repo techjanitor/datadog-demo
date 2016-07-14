@@ -5,7 +5,7 @@ variable "service_two_service_name" {
 }
 
 variable "service_two_query_criteria" {
-  default = "environment:prod,service_name:service_two"
+  default = "service_name:service_two"
 }
 
 module "service_two_ec2" {
@@ -18,4 +18,7 @@ module "service_two_sys" {
     source = "modules/sys"
     service_name = "${var.service_two_service_name}"
     query_criteria = "${var.service_two_query_criteria}"
+
+    load_change_threshold_ok = 20
+    load_change_threshold_critical = 40
 }
